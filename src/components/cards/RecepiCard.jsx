@@ -12,7 +12,7 @@ export default function RecepiCard({ recipe }) {
         <h2 className="card-title">{recipe?.price}</h2>
         <p>
           {recipe?.description?.length > 30
-            ? recipe?.description?.slice(0, 30)
+            ? `${recipe?.description?.slice(0, 60)}...`
             : recipe?.description}
         </p>
         <div className="card-actions justify-end">

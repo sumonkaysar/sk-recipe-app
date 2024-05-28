@@ -11,7 +11,7 @@ export default function DashbaordLayout() {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
+      <div className="drawer-content flex flex-col items-center">
         <Outlet />
         <label
           htmlFor="my-drawer-2"
@@ -27,7 +27,6 @@ export default function DashbaordLayout() {
           className="drawer-overlay"
         ></label>
         <ul className="menu p-4 w-60 min-h-screen bg-base-200 text-base-content flex flex-col justify-between">
-          {/* Sidebar content here */}
           <div>
             <li>
               <Link to={"/dashboard/manage-recipes"}>Mangae All Recipes</Link>
@@ -40,7 +39,7 @@ export default function DashbaordLayout() {
             <Link to={"/"} className="btn btn-neutral">
               Home
             </Link>
-            <button className="btn btn-error" onClick={handleLogout}>
+            <button className="btn btn-error text-white" onClick={handleLogout}>
               Logout
             </button>
           </div>

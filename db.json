@@ -3,7 +3,7 @@
     {
       "id": "1",
       "title": "Spaghetti Carbonara 2",
-      "price": 12.99,
+      "price": "12.90",
       "description": "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
       "image": "https://example.com/images/spaghetti-carbonara.jpg",
       "category": "Thai"
@@ -11,7 +11,7 @@
     {
       "id": "2",
       "title": "Chicken Tikka Masala",
-      "price": 15.99,
+      "price": "13",
       "description": "Grilled chunks of chicken enveloped in a creamy, spiced tomato sauce.",
       "image": "https://example.com/images/chicken-tikka-masala.jpg",
       "category": "Indian"
@@ -107,24 +107,10 @@
     {
       "id": "14",
       "title": "Ramen",
-      "price": 12.99,
+      "price": "12.90",
       "description": "A hearty Japanese noodle soup with meat, vegetables, and broth.",
       "image": "https://example.com/images/ramen.jpg",
       "category": "Japanese"
-    },
-    {
-      "id": "147",
-      "title": "test1111",
-      "price": "7878",
-      "category": "Mexican",
-      "descrition": "test"
-    },
-    {
-      "id": "121212",
-      "title": "Test ",
-      "price": "121",
-      "category": "Mexican",
-      "description": "test descittion"
     }
   ],
   "categories": [
@@ -170,5 +156,3 @@
     }
   ]
 }
-
-

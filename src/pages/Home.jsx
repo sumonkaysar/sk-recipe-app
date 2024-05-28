@@ -31,9 +31,8 @@ export default function Home() {
     //   .then((data) => setCategories(data));
   }, []);
 
-  console.log("hi");
   return (
-    <div>
+    <div className="mb-20">
       <Banner />
 
       <div className="mx-16">
@@ -46,7 +45,7 @@ export default function Home() {
       </div>
       <div className="mx-16">
         <h1 className="text-4xl my-20 text-center">Our Newest Recipes </h1>
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
           {recipes
             ?.reverse()
             ?.slice(0, 4)
