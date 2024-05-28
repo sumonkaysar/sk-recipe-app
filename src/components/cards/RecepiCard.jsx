@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 import pizza from "../../assets/pizza.webp";
 
 export default function RecepiCard({ recipe }) {
@@ -15,8 +16,14 @@ export default function RecepiCard({ recipe }) {
             ? `${recipe?.description?.slice(0, 60)}...`
             : recipe?.description}
         </p>
-        <div className="card-actions justify-end">
-          <div className="badge badge-outline">{recipe?.category}</div>
+        <div className="badge badge-outline">{recipe?.category}</div>
+        <div className="card-actions justify-center mt-2">
+          <Link
+            to={`/recipes/${recipe?.id}`}
+            className="btn btn-primary btn-sm text-white"
+          >
+            Details
+          </Link>
         </div>
       </div>
     </div>
