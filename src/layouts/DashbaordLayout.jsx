@@ -1,6 +1,7 @@
 import { useSignOut } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase.config";
 import { Link, Outlet } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
 
 export default function DashbaordLayout() {
   const [signOut] = useSignOut(auth);
@@ -15,9 +16,9 @@ export default function DashbaordLayout() {
         <Outlet />
         <label
           htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden"
+          className="btn btn-sm btn-outline drawer-button lg:hidden absolute left-2 top-2"
         >
-          Open drawer
+          <FaBars />
         </label>
       </div>
       <div className="drawer-side">
@@ -29,7 +30,10 @@ export default function DashbaordLayout() {
         <ul className="menu p-4 w-60 min-h-screen bg-base-200 text-base-content flex flex-col justify-between">
           <div>
             <li>
-              <Link to={"/dashboard/manage-recipes"}>Mangae All Recipes</Link>
+              <Link to={"/dashboard"}>Dashboard</Link>
+            </li>
+            <li>
+              <Link to={"/dashboard/manage-recipes"}>Manage All Recipes</Link>
             </li>
             <li>
               <Link to={"/dashboard/add-recipe"}>Add Recipe</Link>

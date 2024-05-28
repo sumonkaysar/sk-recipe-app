@@ -64,7 +64,7 @@ const AddRecipe = () => {
 
   return (
     <div className="w-full px-16">
-      <h1 className="text-4xl mb-4">Add Recipe</h1>
+      <h1 className="text-4xl mb-4 mt-10">Add Recipe</h1>
       <form onSubmit={confirmUpdateRecipe} className="w-full">
         <div className="mb-4">
           <label htmlFor="">Id </label>
