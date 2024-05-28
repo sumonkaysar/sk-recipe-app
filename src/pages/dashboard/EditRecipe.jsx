@@ -7,6 +7,7 @@ import ConfirmationModal from "../../components/shared/ConfirmationModal";
 const EditRecipe = () => {
   const { id } = useParams();
 
+  const [errors, setErrors] = useState({});
   const [recipeDetails, setRecipeDetails] = useState();
   const [categories, setCategories] = useState();
   const [recipeData, setRecipeData] = useState({});
@@ -40,15 +41,23 @@ const EditRecipe = () => {
     const price = form.price.value;
     const category = form.category.value;
     const description = form.description.value;
-    setRecipeData({
-      id,
-      title,
-      price,
-      category,
-      description,
-    })
+    if (id && title && price && category && description) {
+      setRecipeData({
+        id,
+        title,
+        price,
+        category,
+        description,
+      })
 
-    document.getElementById('confirmationModal')?.showModal();
+      document.getElementById('confirmationModal')?.showModal();
+    } else {
+      !id && setErrors(prevErrors => ({ ...prevErrors, id: "ID can't be blank" }));
+      !title && setErrors(prevErrors => ({ ...prevErrors, title: "Title can't be blank" }));
+      !price && setErrors(prevErrors => ({ ...prevErrors, price: "Price can't be blank" }));
+      !category && setErrors(prevErrors => ({ ...prevErrors, category: "Please choose a category" }));
+      !description && setErrors(prevErrors => ({ ...prevErrors, description: "Description can't be blank" }));
+    }
   }
 
   const handleUpdateRecipe = async (id, recipeData) => {
@@ -72,6 +81,7 @@ const EditRecipe = () => {
             name="title"
             className="w-full bg-slate-100 input input-lg border-0 focus:outline-0"
           />
+          {errors.title && <p className="text-error mt-1">{errors.title}</p>}
         </div>
         <div className="flex gap-3 mb-5">
           <div className="flex-1">
@@ -82,6 +92,7 @@ const EditRecipe = () => {
               defaultValue={recipeDetails?.price}
               className="w-full bg-slate-100 input input-lg border-0 focus:outline-0"
             />
+            {errors.price && <p className="text-error mt-1">{errors.price}</p>}
           </div>
           <div className="flex-1">
             <label htmlFor="">Cateogry</label>
@@ -99,6 +110,8 @@ const EditRecipe = () => {
                 </option>
               ))}
             </select>
+
+            {errors.category && <p className="text-error mt-1">{errors.category}</p>}
           </div>
         </div>
 
@@ -109,8 +122,8 @@ const EditRecipe = () => {
             name="description"
             className="w-full bg-slate-100 textarea textarea-lg border-0 focus:outline-0"
           />
+          {errors.description && <p className="text-error mt-1">{errors.description}</p>}
         </div>
-
         <div className="mb-5">
           <input
             type="submit"

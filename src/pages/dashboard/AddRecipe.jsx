@@ -2,11 +2,14 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import ConfirmationModal from "../../components/shared/ConfirmationModal";
+import { useNavigate } from "react-router-dom";
 
 const AddRecipe = () => {
+  const [errors, setErrors] = useState({});
   const [categories, setCategories] = useState();
   const [recipeData, setRecipeData] = useState({});
   const closeBtnRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function load() {
@@ -21,6 +24,7 @@ const AddRecipe = () => {
 
   const confirmUpdateRecipe = (e) => {
     e.preventDefault();
+    setErrors({});
 
     const form = e.target;
 
@@ -29,21 +33,30 @@ const AddRecipe = () => {
     const price = form.price.value;
     const category = form.category.value;
     const description = form.description.value;
-    setRecipeData({
-      id,
-      title,
-      price,
-      category,
-      description,
-    })
 
-    document.getElementById('confirmationModal')?.showModal();
+    if (id && title && price && category && description) {
+      setRecipeData({
+        id,
+        title,
+        price,
+        category,
+        description,
+      })
+
+      document.getElementById('confirmationModal')?.showModal();
+    } else {
+      !id && setErrors(prevErrors => ({ ...prevErrors, id: "ID can't be blank" }));
+      !title && setErrors(prevErrors => ({ ...prevErrors, title: "Title can't be blank" }));
+      !price && setErrors(prevErrors => ({ ...prevErrors, price: "Price can't be blank" }));
+      !category && setErrors(prevErrors => ({ ...prevErrors, category: "Please choose a category" }));
+      !description && setErrors(prevErrors => ({ ...prevErrors, description: "Description can't be blank" }));
+    }
   }
 
   const handleCreateRecipe = async (recipeData) => {
 
     const result = await axios.post("http://localhost:3000/recipes", recipeData);
-    if (result.status === 200) {
+    if (result.status === 201) {
       toast.success("A new recipe is created successfully");
       navigate("/dashboard/manage-recipes");
     }
@@ -56,10 +69,12 @@ const AddRecipe = () => {
         <div className="mb-4">
           <label htmlFor="">Id </label>
           <input type="text" name="id" className="w-full py-3 px-5 border" />
+          {errors.id && <p className="text-error mt-1">{errors.id}</p>}
         </div>
         <div className="mb-4">
           <label htmlFor="">Title </label>
           <input type="text" name="title" className="w-full py-3 px-5 border" />
+          {errors.title && <p className="text-error mt-1">{errors.title}</p>}
         </div>
         <div className="mb-4">
           <label htmlFor="">Price </label>
@@ -68,6 +83,7 @@ const AddRecipe = () => {
             name="price"
             className="w-full py-3 px-5 border"
           />
+          {errors.price && <p className="text-error mt-1">{errors.price}</p>}
         </div>
         <div className="mb-4">
           <label htmlFor="">Cateogry </label>
@@ -78,11 +94,13 @@ const AddRecipe = () => {
               </option>
             ))}
           </select>
+          {errors.category && <p className="text-error mt-1">{errors.category}</p>}
         </div>
 
         <div className="mb-4">
           <label htmlFor="">Description </label>
           <textarea name="description" className="w-full py-3 px-5 border" />
+          {errors.description && <p className="text-error mt-1">{errors.description}</p>}
         </div>
 
         <div className="mb-4">
