@@ -31,7 +31,7 @@ export default function Footer() {
             <input
               type="text"
               placeholder="username@site.com"
-              className="input input-bordered join-item max-w-32"
+              className="input input-bordered join-item"
             />
             <button className="btn btn-primary join-item">Subscribe</button>
           </div>

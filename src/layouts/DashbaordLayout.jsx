@@ -2,6 +2,9 @@ import { useSignOut } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase.config";
 import { Link, Outlet } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import { MdSpaceDashboard } from "react-icons/md";
+import { GiMeal } from "react-icons/gi";
+import { FaGear } from "react-icons/fa6";
 
 export default function DashbaordLayout() {
   const [signOut] = useSignOut(auth);
@@ -29,15 +32,24 @@ export default function DashbaordLayout() {
         ></label>
         <ul className="menu p-4 w-60 min-h-screen bg-base-200 text-base-content flex flex-col justify-between">
           <div>
-            <li>
-              <Link to={"/dashboard"}>Dashboard</Link>
-            </li>
-            <li>
-              <Link to={"/dashboard/manage-recipes"}>Manage All Recipes</Link>
-            </li>
-            <li>
-              <Link to={"/dashboard/add-recipe"}>Add Recipe</Link>
-            </li>
+            <div className="flex items-center">
+              <MdSpaceDashboard size={24} />
+              <li>
+                <Link to={"/dashboard"}>Dashboard</Link>
+              </li>
+            </div>
+            <div className="flex items-center">
+              <GiMeal size={24} />
+              <li>
+                <Link to={"/dashboard/manage-recipes"}>Manage All Recipes</Link>
+              </li>
+            </div>
+            <div className="flex items-center">
+              <FaGear size={24} />
+              <li>
+                <Link to={"/dashboard/add-recipe"}>Add Recipe</Link>
+              </li>
+            </div>
           </div>
           <div className="flex gap-4">
             <Link to={"/"} className="btn btn-neutral">
