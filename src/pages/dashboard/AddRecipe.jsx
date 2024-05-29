@@ -64,50 +64,69 @@ const AddRecipe = () => {
 
   return (
     <div className="w-full px-16">
-      <h1 className="text-4xl mb-4 mt-10">Add Recipe</h1>
+      <h1 className="text-4xl mb-6 mt-12">Add Recipe</h1>
       <form onSubmit={confirmUpdateRecipe} className="w-full">
         <div className="mb-4">
-          <label htmlFor="">Id </label>
-          <input type="text" name="id" className="w-full py-3 px-5 border" />
+          <label htmlFor="id">ID </label>
+          <input
+            id="id"
+            type="text"
+            name="id"
+            className="w-full bg-slate-100 input input-lg border-0 focus:outline-0"
+          />
           {errors.id && <p className="text-error mt-1">{errors.id}</p>}
         </div>
         <div className="mb-4">
-          <label htmlFor="">Title </label>
-          <input type="text" name="title" className="w-full py-3 px-5 border" />
+          <label htmlFor="title">Title </label>
+          <input
+            id="title"
+            type="text"
+            name="title"
+            className="w-full bg-slate-100 input input-lg border-0 focus:outline-0"
+          />
           {errors.title && <p className="text-error mt-1">{errors.title}</p>}
         </div>
+        <div className="sm:flex gap-3 mb-5">
+          <div className="flex-1 mb-5 sm:mb-0">
+            <label htmlFor="price">Price </label>
+            <input
+              id="price"
+              type="text"
+              name="price"
+              className="w-full bg-slate-100 input input-lg border-0 focus:outline-0"
+            />
+            {errors.price && <p className="text-error mt-1">{errors.price}</p>}
+          </div>
+          <div className="flex-1">
+            <label htmlFor="category">Cateogry </label>
+            <select
+              id="category"
+              name="category"
+              className="w-full bg-slate-100 select select-lg border-0 focus:outline-0"
+            >
+              {categories?.map((category) => (
+                <option key={category?.id} value={category?.title}>
+                  {category?.title}
+                </option>
+              ))}
+            </select>
+            {errors.category && <p className="text-error mt-1">{errors.category}</p>}
+          </div>
+        </div>
         <div className="mb-4">
-          <label htmlFor="">Price </label>
-          <input
-            type="number"
-            name="price"
-            className="w-full py-3 px-5 border"
+          <label htmlFor="description">Description </label>
+          <textarea
+            id="description"
+            name="description"
+            className="w-full bg-slate-100 textarea textarea-lg border-0 focus:outline-0"
           />
-          {errors.price && <p className="text-error mt-1">{errors.price}</p>}
-        </div>
-        <div className="mb-4">
-          <label htmlFor="">Cateogry </label>
-          <select name="category" id="" className="w-full py-3 px-5 border">
-            {categories?.map((category) => (
-              <option key={category?.id} value={category?.title}>
-                {category?.title}
-              </option>
-            ))}
-          </select>
-          {errors.category && <p className="text-error mt-1">{errors.category}</p>}
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="">Description </label>
-          <textarea name="description" className="w-full py-3 px-5 border" />
           {errors.description && <p className="text-error mt-1">{errors.description}</p>}
         </div>
-
         <div className="mb-4">
           <input
             type="submit"
             value={"Add Recipe"}
-            className="w-full btn py-3 px-5 border btn-neutral"
+            className="w-full btn text-white btn-primary py-3 px-5 border"
           />
         </div>
       </form>

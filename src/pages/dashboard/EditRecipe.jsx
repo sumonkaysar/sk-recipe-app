@@ -74,29 +74,32 @@ const EditRecipe = () => {
       <h1 className="text-4xl mb-6">Edit Recipe</h1>
       <form onSubmit={confirmUpdateRecipe} className="w-full">
         <div className="mb-5">
-          <label htmlFor="">Title</label>
+          <label htmlFor="title">Title</label>
           <input
             defaultValue={recipeDetails?.title}
             type="text"
+            id="title"
             name="title"
             className="w-full bg-slate-100 input input-lg border-0 focus:outline-0"
           />
           {errors.title && <p className="text-error mt-1">{errors.title}</p>}
         </div>
-        <div className="flex gap-3 mb-5">
-          <div className="flex-1">
-            <label htmlFor="">Price</label>
+        <div className="sm:flex gap-3 mb-5">
+          <div className="flex-1 mb-5 sm:mb-0">
+            <label htmlFor="price">Price</label>
             <input
               type="text"
               name="price"
+              id="price"
               defaultValue={recipeDetails?.price}
               className="w-full bg-slate-100 input input-lg border-0 focus:outline-0"
             />
             {errors.price && <p className="text-error mt-1">{errors.price}</p>}
           </div>
           <div className="flex-1">
-            <label htmlFor="">Cateogry</label>
+            <label htmlFor="category">Cateogry</label>
             <select
+              id="category"
               name="category"
               className="w-full bg-slate-100 select select-lg border-0 focus:outline-0"
             >
@@ -116,10 +119,11 @@ const EditRecipe = () => {
         </div>
 
         <div className="mb-5">
-          <label htmlFor="">Description </label>
+          <label htmlFor="description">Description </label>
           <textarea
             defaultValue={recipeDetails?.description}
             name="description"
+            id="description"
             className="w-full bg-slate-100 textarea textarea-lg border-0 focus:outline-0"
           />
           {errors.description && <p className="text-error mt-1">{errors.description}</p>}
