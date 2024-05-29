@@ -148,5 +148,22 @@
       "id": "d05a",
       "flag": "./flags/US.png"
     }
+  ],
+  "team": [
+    {
+      "name": "John Smith",
+      "role": "Founder & CEO",
+      "image": "https://img.freepik.com/free-photo/serious-adult-businessman-looking-through-window_1262-1909.jpg"
+    },
+    {
+      "name": "Bob Smith",
+      "role": "Head Chef",
+      "image": "https://cdn03.nnnow.com/web-images/medium/styles/5U5K4CK7LL7/1691134714826/1.JPG"
+    },
+    {
+      "name": "Carol Lee",
+      "role": "Community Manager",
+      "image": "https://manyavar.scene7.com/is/image/manyavar/M11204_09-11-2022-12-53-2:283x395"
+    }
   ]
 }

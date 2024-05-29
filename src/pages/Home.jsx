@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import Banner from "../components/home/Banner";
 import { useState } from "react";
-import RecepiCard from "../components/cards/RecepiCard";
-import CategoryCard from "../components/cards/CategoryCard";
+import Categories from "../components/home/Categories";
+import NewestRecipes from "../components/home/NewestRecipes";
+import Features from "../components/home/Features";
 
 export default function Home() {
   const [recipes, setRescipes] = useState();
-  const [categoris, setCategories] = useState();
+  const [categories, setCategories] = useState();
   useEffect(() => {
     async function load() {
       //get recipies
@@ -26,26 +27,9 @@ export default function Home() {
   return (
     <div className="mb-20">
       <Banner />
-
-      <div className="mx-16">
-        <h1 className="text-4xl my-20 text-center">Our Recipe Categories </h1>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {categoris?.map((category) => (
-            <CategoryCard key={category?.id} category={category} />
-          ))}
-        </div>
-      </div>
-      <div className="mx-16">
-        <h1 className="text-4xl my-20 text-center">Our Newest Recipes </h1>
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {recipes
-            ?.reverse()
-            ?.slice(0, 4)
-            ?.map((recipe) => (
-              <RecepiCard key={recipe?.id} recipe={recipe} />
-            ))}
-        </div>
-      </div>
+      <Categories categories={categories} />
+      <Features />
+      <NewestRecipes recipes={recipes} />
     </div>
   );
 }

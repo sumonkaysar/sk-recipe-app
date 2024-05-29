@@ -21,7 +21,7 @@ export default function Footer() {
         <a className="link link-hover">Privacy policy</a>
         <a className="link link-hover">Cookie policy</a>
       </nav>
-      <form>
+      <form className="hidden sm:grid">
         <h6 className="footer-title">Newsletter</h6>
         <fieldset className="form-control w-80">
           <label className="label">
@@ -31,7 +31,7 @@ export default function Footer() {
             <input
               type="text"
               placeholder="username@site.com"
-              className="input input-bordered join-item"
+              className="input input-bordered join-item max-w-32"
             />
             <button className="btn btn-primary join-item">Subscribe</button>
           </div>

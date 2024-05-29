@@ -1,7 +1,14 @@
+import Banner from "../components/about/Banner";
+import Missions from "../components/about/Missions";
+import Team from "../components/about/Team";
+
 export default function About() {
+  
   return (
-    <div className="min-h-[400px] flex justify-center items-center">
-      <p>This is about page </p>
+    <div>
+      <Banner />
+      <Missions />
+      <Team />
     </div>
   );
 }

@@ -34,7 +34,7 @@ export default function Navbar() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to="/">All Recepies</Link>
+              <Link to="/recipes">All Recepies</Link>
             </li>
             <li>
               <Link to="/about">About Us</Link>
@@ -49,7 +49,7 @@ export default function Navbar() {
       <div className="navbar-center hidden lg:flex">
         <ul className="flex items-center gap-6 px-1">
           <li>
-            <Link to="/">All Recepies</Link>
+            <Link to="/recipes">All Recepies</Link>
           </li>
           <li>
             <Link to={"/about"}>About Us</Link>
