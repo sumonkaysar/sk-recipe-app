@@ -1,0 +1,4 @@
+.categoryCard:hover .categoryCardOverlay{
+    transform: translateY(0);
+    transition: transform .4s;
+}

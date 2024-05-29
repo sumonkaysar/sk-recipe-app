@@ -4,7 +4,7 @@ import pizza from "../../assets/pizza.webp";
 
 export default function RecepiCard({ recipe }) {
   return (
-    <div className="card  bg-base-100 shadow-xl">
+    <div className="card bg-slate-100 shadow-xl">
       <figure>
         <img src={pizza} alt="food" className="max-w-50" />
       </figure>
@@ -20,7 +20,7 @@ export default function RecepiCard({ recipe }) {
         <div className="card-actions justify-center mt-2">
           <Link
             to={`/recipes/${recipe?.id}`}
-            className="btn btn-primary btn-sm text-white"
+            className="w-full btn btn-primary text-white"
           >
             Details
           </Link>

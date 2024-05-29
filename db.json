@@ -100,43 +100,53 @@
   "categories": [
     {
       "title": "Italian",
-      "id": "2314"
+      "id": "2314",
+      "flag": "./flags/italy.png"
     },
     {
       "title": "Indian",
-      "id": "8569"
+      "id": "8569",
+      "flag": "./flags/india.png"
     },
     {
       "title": "Japanese",
-      "id": "5680"
+      "id": "5680",
+      "flag": "./flags/japan.png"
     },
     {
       "title": "Mexican",
-      "id": "e23f"
+      "id": "e23f",
+      "flag": "./flags/mexico.png"
     },
     {
       "title": "Thai",
-      "id": "970b"
+      "id": "970b",
+      "flag": "./flags/thailand.png"
     },
     {
       "title": "British",
-      "id": "b069"
+      "id": "b069",
+      "flag": "./flags/UK.png"
     },
     {
       "title": "Middle Eastern",
-      "id": "b460"
+      "id": "b460",
+      "flag": "./flags/UAE.png"
     },
     {
       "title": "French",
-      "id": "8c74"
+      "id": "8c74",
+      "flag": "./flags/france.png"
     },
     {
       "title": "Chinese",
-      "id": "c33b"
+      "id": "c33b",
+      "flag": "./flags/china.png"
     },
     {
       "title": "American",
-      "id": "d05a"
+      "id": "d05a",
+      "flag": "./flags/US.png"
     }
   ]
 }

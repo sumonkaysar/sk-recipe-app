@@ -8,17 +8,12 @@ export default function Home() {
   const [recipes, setRescipes] = useState();
   const [categoris, setCategories] = useState();
   useEffect(() => {
-    // fetch("http://localhost:3000/recipes")
-    //   .then((res) => res.json())
-    //   .then((data) => setRescipes(data));
-
     async function load() {
       //get recipies
       const recipeRes = await fetch("http://localhost:3000/recipes");
       const recipeData = await recipeRes.json();
       setRescipes(recipeData);
       //get categories
-
       const categoryRes = await fetch("http://localhost:3000/categories");
       const categoryData = await categoryRes.json();
 
@@ -26,9 +21,6 @@ export default function Home() {
     }
     load();
 
-    // fetch("http://localhost:3000/categories")
-    //   .then((res) => res.json())
-    //   .then((data) => setCategories(data));
   }, []);
 
   return (
@@ -37,7 +29,7 @@ export default function Home() {
 
       <div className="mx-16">
         <h1 className="text-4xl my-20 text-center">Our Recipe Categories </h1>
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {categoris?.map((category) => (
             <CategoryCard key={category?.id} category={category} />
           ))}

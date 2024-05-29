@@ -1,5 +1,5 @@
 // import banner1 from "../../assets/image_01.jpeg";
-import banner2 from "../../assets/banner.jpg";
+import banner2 from "../../assets/home/banner.jpg";
 
 export default function Banner() {
   return (

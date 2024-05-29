@@ -16,11 +16,10 @@ const RecipeDetails = () => {
                 setRecipeDetails(recipeData?.data);
             }
         }
-
         load();
     }, [id]);
     return (
-        <div className="card w-3/4 mx-auto shadow-xl my-20 bg-slate-100">
+        <div className="card w-3/4 max-w-[700px] mx-auto shadow-xl my-20 bg-slate-100">
             <figure>
                 <img src={pizza} alt="food" className="max-w-50" />
             </figure>
@@ -28,9 +27,7 @@ const RecipeDetails = () => {
                 <h2 className="card-title">{recipeDetails?.title}</h2>
                 <h2 className="card-title">{recipeDetails?.price}</h2>
                 <p>
-                    {recipeDetails?.description?.length > 30
-                        ? `${recipeDetails?.description?.slice(0, 60)}...`
-                        : recipeDetails?.description}
+                    {recipeDetails?.description}
                 </p>
                 <div className="badge badge-outline">{recipeDetails?.category}</div>
             </div>
